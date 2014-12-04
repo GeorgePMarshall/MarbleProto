@@ -12,8 +12,8 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float X = Input.GetAxis("Horizontal")*2;
-        float Z = Input.GetAxis("Vertical")*2;
+        float X = Input.GetAxis("Horizontal")*10;
+        float Z = Input.GetAxis("Vertical")*10;
         
         if(Input.GetKey("space"))
         {
