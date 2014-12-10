@@ -2,29 +2,48 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-    float Y = 0;
 
+	public float Player_Speed = 10f;
+	public float Jump_Force = 30f;
+	public float Gravity = 10f;
+	public bool Grounded = false;
+	
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
-        float X = Input.GetAxis("Horizontal")*10;
-        float Z = Input.GetAxis("Vertical")*10;
-        
-        if(Input.GetKey("space"))
-        {
-             Y = 30;
-        }
-        else
-        {
-             Y = 0;
-        }
+		
+		float X = Input.GetAxis ("Horizontal");
+		float Z = Input.GetAxis ("Vertical");
 
-        Vector3 movement = new Vector3(X, Y, Z);
-        rigidbody.AddForce(movement);
+
+
+		if (Grounded == true && (Input.GetKey ("space"))){ //If the player is on the ground (True) and you press the Spacebar
+			rigidbody.AddForce (rigidbody.velocity += Vector3.up * Jump_Force);
+			Grounded = false; //Set grounded to false again because the player is in the air
+		} else {
+			rigidbody.AddForce (-Vector3.up * Gravity * Time.deltaTime); //Gravity
+		}
+
+		//Check if player is on ground
+		if (Grounded == false) { //Debug
+			Debug.Log ("Grounded");
+		}
+
+        Vector3 movement = new Vector3(X, 0, Z);
+		movement.Normalize ();
+        //rigidbody.AddForce(movement * Player_Speed);
+		rigidbody.AddForce(new Vector3(0,0,0).normalized*moveSpeed*Time.deltaTime);
+
+
+		Debug.Log ("X: " + X + " Z: " + Z); //debug
+	}
+
+	void OnCollisionEnter(Collision collision) { //Check if the player is on the ground!
+	
+		if (collision.collider.gameObject.tag == "Ground") {
+			Grounded = true;
+			Debug.Log ("touching ground"); //Debug
+		} else {
+			Grounded = false;
+		}
 	}
 }
