@@ -30,8 +30,7 @@ public class Player : MonoBehaviour {
 
         Vector3 movement = new Vector3(X, 0, Z);
 		movement.Normalize ();
-        //rigidbody.AddForce(movement * Player_Speed);
-		rigidbody.AddForce(new Vector3(0,0,0).normalized*moveSpeed*Time.deltaTime);
+        rigidbody.AddForce(movement * Player_Speed);
 
 
 		Debug.Log ("X: " + X + " Z: " + Z); //debug
