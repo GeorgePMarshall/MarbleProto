@@ -3,21 +3,17 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-	public Transform target;
-	public float speed;
-	public float radius;
-	public float offset;
+    public Transform target;
+
+	// Use this for initialization
+	void Start () {
 	
-	Vector3 direction;
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		direction = target.position - transform.position + transform.up * offset;
-		direction.y = 0;
-		float distance = direction.magnitude;
-		direction.Normalize();
-		
-		if (distance > radius)
-			transform.position = transform.position + direction * speed * Time.deltaTime;
+        Vector3 ball = new Vector3(target.position.x, 7, target.position.z - 10);
+        transform.position = ball;
+
 	}
 }
