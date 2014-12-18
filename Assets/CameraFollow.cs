@@ -5,11 +5,6 @@ public class CameraFollow : MonoBehaviour {
 
     public Transform target;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
         Vector3 ball = new Vector3(target.position.x, 7, target.position.z - 10);
