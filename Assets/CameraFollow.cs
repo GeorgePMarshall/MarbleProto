@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Vector3 ball = new Vector3(target.position.x, 7, target.position.z - 10);
+        Vector3 ball = new Vector3(target.position.x, target.position.y + 7, target.position.z - 10);
         transform.position = ball;
 
 	}
