@@ -15,24 +15,26 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (Physics.Raycast (transform.position, fwd, .5f)) {
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
-				Debug.Log("Grounded true");
 				Grounded = true;
+				Vector3 Jump = new Vector3(0,10,0);
+				rigidbody.AddForce(Jump * 60);
 			}
 		}
 		
-		if (Grounded == true && (Input.GetKeyDown ("space"))){ //If the player is on the ground (True) and you press the Spacebar
-			Grounded = false; 
+		if (Grounded == true && (Input.GetKeyDown ("space"))){ //If the player is on the ground (True) and you press the Spacebar		
+			Grounded = false;
 			Vector3 Jump = new Vector3(0,10,0);
 			rigidbody.AddForce(Jump * 60);
 		}
 
 		if (Grounded == false) {
-			Physics.gravity = new Vector3(0,-1000 * Time.deltaTime,0);
+			Physics.gravity = new Vector3 (0, -1000 * Time.deltaTime, 0);
 		}
-
 
         Vector3 movement = new Vector3(X, 0, Z);
         rigidbody.AddForce(movement);
+
+
 	}
 }
 /*
