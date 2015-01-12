@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	public float Player_Speed = 25f;
-	public bool Grounded = false;
+	public bool Grounded = true;
 
 	void Update () {
 		
@@ -14,25 +14,33 @@ public class Player : MonoBehaviour {
 		Vector3 fwd = Vector3.down;
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (Physics.Raycast (transform.position, fwd, .5f)) {
+				Grounded = false;
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
-				Grounded = true;
 				Vector3 Jump = new Vector3(0,10,0);
 				rigidbody.AddForce(Jump * 60);
 			}
 		}
+
+		if(!Physics.Raycast(transform.position, fwd, .5f)){
+			Physics.gravity = new Vector3 (0, -1000 * Time.deltaTime, 0);
+			Player_Speed = 12;
+		}else{
+			Player_Speed = 20f;
+		}
 		
-		if (Grounded == true && (Input.GetKeyDown ("space"))){ //If the player is on the ground (True) and you press the Spacebar		
+		/*if (Grounded == true && (Input.GetKeyDown ("space"))){ //If the player is on the ground (True) and you press the Spacebar		
 			Grounded = false;
 			Vector3 Jump = new Vector3(0,10,0);
-			rigidbody.AddForce(Jump * 60);
-		}
+			rigidbody.AddForce(Jump * 40);
+		}*/
 
-		if (Grounded == false) {
-			Physics.gravity = new Vector3 (0, -1000 * Time.deltaTime, 0);
+		if (Grounded ==  false) {
+			//Player_Speed = 5f;
+
 		}
 
         Vector3 movement = new Vector3(X, 0, Z);
-        rigidbody.AddForce(movement);
+        rigidbody.AddForce(movement); //addforce
 
 
 	}
