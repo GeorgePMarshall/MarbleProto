@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	public float Player_Speed = 25f;
-	public bool Grounded = true;
+	public float Player_Jump = 60f;
 
 	void Update () {
 		
@@ -13,11 +13,10 @@ public class Player : MonoBehaviour {
 
 		Vector3 fwd = Vector3.down;
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (Physics.Raycast (transform.position, fwd, .5f)) {
-				Grounded = false;
+			if (Physics.Raycast (transform.position, fwd, .7f)) {
 				rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
 				Vector3 Jump = new Vector3(0,10,0);
-				rigidbody.AddForce(Jump * 60);
+				rigidbody.AddForce(Jump * Player_Jump);
 			}
 		}
 
@@ -27,17 +26,7 @@ public class Player : MonoBehaviour {
 		}else{
 			Player_Speed = 20f;
 		}
-		
-		/*if (Grounded == true && (Input.GetKeyDown ("space"))){ //If the player is on the ground (True) and you press the Spacebar		
-			Grounded = false;
-			Vector3 Jump = new Vector3(0,10,0);
-			rigidbody.AddForce(Jump * 40);
-		}*/
 
-		if (Grounded ==  false) {
-			//Player_Speed = 5f;
-
-		}
 
         Vector3 movement = new Vector3(X, 0, Z);
         rigidbody.AddForce(movement); //addforce
@@ -45,41 +34,3 @@ public class Player : MonoBehaviour {
 
 	}
 }
-/*
-	void OnCollisionEnter(Collision collision) { //Check if the player is on the ground!
-	
-		if (collision.collider.gameObject.tag == "Ground") {
-			Grounded = true;
-			Debug.Log ("touching ground"); //Debug
-		} else {
-			Grounded = false;
-		}
-	}
-}
-using UnityEngine;
-using System.Collections;
-
-public class LookAt : MonoBehaviour {
-	
-	int layer = 1 << 8;
-	
-	// Update is called once per frame
-	void Update () {
-	
-		Vector3 mouse = Input.mousePosition;
-
-		//cast a ray from the screen into the world
-		Ray ray = Camera.main.ScreenPointToRay (mouse);
-		RaycastHit hitInfo;
-		Physics.Raycast (ray, out hitInfo, 100 ,layer);
-
-		// Adjiust target position's Y
-		Vector3 target = hitInfo.point;
-		target.y = transform.position.y;
-		transform.LookAt (target);
-	}
-}
-
- * 
- */
-
