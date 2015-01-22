@@ -5,7 +5,7 @@ public class Pixel_Collectable : MonoBehaviour {
 
 	void Update () {
 
-		gameObject.transform.RotateAround(gameObject.transform.position, new Vector3(0,1,0), 10f);
+		gameObject.transform.RotateAround(gameObject.transform.position, new Vector3(0,1,0), 5f);
 	}
 
 	void OnTriggerEnter(Collider coll) {

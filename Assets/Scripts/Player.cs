@@ -33,4 +33,10 @@ public class Player : MonoBehaviour {
 
 
 	}
+
+	void OnTriggerEnter(Collider coll) {
+		if(coll.tag == "Border"){
+			Application.LoadLevel(Application.loadedLevelName);
+		}
+	}
 }
