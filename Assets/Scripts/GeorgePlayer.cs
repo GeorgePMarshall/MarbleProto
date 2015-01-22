@@ -62,7 +62,7 @@ public class GeorgePlayer : MonoBehaviour {
         }
         if(coll.transform.tag == "Finish")
         {
-            Application.LoadLevel("scene");
+            Application.LoadLevel("Rhys");
             Debug.Log("Level Complete");
         }
     }
