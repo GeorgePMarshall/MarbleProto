@@ -15,8 +15,9 @@ ModelImporter:
     4300002: Cube.001
     6400000: //RootNode
     6400002: Cube.001
-    7400000: Cylinder|Cube.001Action
+    7400000: spin
     7400002: Cube.001|Cube.001Action
+    7400004: spin
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -29,15 +30,45 @@ ModelImporter:
     motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
-    animationPositionError: .5
+    animationPositionError: 0
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: spin
+      takeName: Cylinder|Cube.001Action
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube.001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: 1.79999995
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1
