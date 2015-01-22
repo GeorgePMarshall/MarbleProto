@@ -46,13 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\Play.cs" />
-     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Flamethrower.cs" />
      <Compile Include="Assets\Scripts\GeorgeCamera.cs" />
      <Compile Include="Assets\Scripts\GeorgePlayer.cs" />
+     <Compile Include="Assets\Scripts\Pixel_Collectable.cs" />
+     <Compile Include="Assets\Scripts\Play.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Pusher.cs" />
+     <Compile Include="Assets\Scripts\_GUI.cs" />
      <Compile Include="Assets\main menu\Exit.cs" />
      <Compile Include="Assets\main menu\Play.cs" />
  <Reference Include="UnityEngine.UI">
